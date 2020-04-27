@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Arauco</title>
+</head>
+
+<body>
+  <h1>Entrada ARAUCO</h1>
+    <form id="infosyncForm">
+      <input type="hidden" id="infosyncFormID" value="55014" />
+      <input type="hidden" id="infosyncRedirectUrl" data-redirect-url="" data-redirect-active="false" />
+      <input type="hidden" id="infosyncErrorMessage" data-message="Something went wrong. Try again." data-message-active="true" />
+      <input type="hidden" id="infosyncSuccessMessage" data-message="Form successfully sent!" data-message-active="true" />
+      <h2>Página 1</h2>
+      <p>Código de Barras</p>
+      <input type="text" oninput="onIpunt(this)" data-infosync-id="5ea1bab919a1ae70f3fc8ece" />
+      <p>Tipo de registro</p>
+      <input type="radio" name="5ea08b3f797987af0cd83aed" value="entrada" data-infosync-id="5ea08b3f797987af0cd83aed">Entrada</input><br>
+      <input type="radio" name="5ea08b3f797987af0cd83aed" value="salida" data-infosync-id="5ea08b3f797987af0cd83aed">Salida</input><br>
+      <p>Planta</p>
+      <input type="radio" name="5ea1bb6723fa2fd9b4f2daf5" value="planta_1" data-infosync-id="5ea1bb6723fa2fd9b4f2daf5">Planta 1</input><br>
+      <input type="radio" name="5ea1bb6723fa2fd9b4f2daf5" value="planta_2" data-infosync-id="5ea1bb6723fa2fd9b4f2daf5">Planta 2</input><br>
+      <input type="radio" name="5ea1bb6723fa2fd9b4f2daf5" value="planta_3" data-infosync-id="5ea1bb6723fa2fd9b4f2daf5">Planta 3</input><br>
+      <p>¿Registro Exitoso?</p>
+      <input type="radio" name="5ea1b8580feec5c43b9e10fe" value="sí" data-infosync-id="5ea1b8580feec5c43b9e10fe">Sí</input>
+      <brr>
+        <input type="radio" name="5ea1b8580feec5c43b9e10fe" value="no" data-infosync-id="5ea1b8580feec5c43b9e10fe">No</input><br>
+        <br>
+        <button onclick="infosync.reset()" type="reset">Borrar respuestas</button>
+        <button onclick="infosync.send()" type="button">Mandar respuestas</button>
+    </form>
+    <script
+      src="./script.js">
+    </script>
+</body>
+
+</html>
