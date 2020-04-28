@@ -1,24 +1,29 @@
-const onIpunt = (input) => {
-  // fetch(url).then((res) => {
-  //   lo que responda haces que quieras aqui con ello
-  // });
-  postSimulated(input.value, 'planta1').then((res) => {
-    console.log('que mas quieres que haga con esto ====>', res);
+const code = document.querySelector('#codigo');
+const image = document.querySelector('#user-image');
+const name = document.querySelector('#name');
+const company = document.querySelector('#company');
+const date = document.querySelector('#date');
+
+const onClick = () => {
+
+  fetch('https://preprod.linkaform.com/api/infosync/scripts/run/', {
+    method: 'POST',
+    body: JSON.stringify({
+      script_id: 55050,
+      location: 'durango',
+      code: code.value,
+    }),
+    headers:{
+      'Content-Type': 'application/json',
+    },
   })
+  .then((res) => res.json())
+  .then((res) => {
+    if (res.success) {
+      image.src = res.response.user_pic.file_url;
+      name.textContent = res.response.user_name;
+      company.textContent = res.response.company;
+      date.textContent = res.response.date
+    }
+  });
 };
-
-
-// aqui va estar un webservice simulado
-
-const postSimulated = (user, planta) => {
-  console.log('los valores que se mandan al web service ===>', user, planta);
-  return new Promise((resolve, reject) => {
-    resolve({
-      status: 200,
-      data: {
-        "photo": "https://f001.backblazeb2.com/file/lkf-media/profile_pictures/profile_pic_1328.jpg",
-        "autorized": true,
-      }
-    })
-  });;
-}
