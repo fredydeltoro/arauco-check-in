@@ -60,8 +60,11 @@ function onClick() {
 };
 
 function capitalize(string) {
-  return string.replace('_', ' ')
-               .split(' ')
-               .map((str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`)
-               .join(' ');
+  if (string) {
+    return string.replace('_', ' ')
+    .split(' ')
+    .map((str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`)
+    .join(' ');
+  }
+  return '';
 };
