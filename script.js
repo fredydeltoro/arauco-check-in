@@ -14,7 +14,7 @@ const locationParam = urlParms.get('location');
 
 locationText.textContent = capitalize(locationParam);
 
-const onClick = () => {
+function onClick() {
 
   fetch('https://preprod.linkaform.com/api/infosync/scripts/run/', {
     method: 'POST',
