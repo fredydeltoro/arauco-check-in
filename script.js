@@ -15,6 +15,7 @@ const loading = document.querySelector('.loading-container');
 loading.style.display = 'none';
 
 function reset() {
+  code.value = '';
   image.src = 'https://image.flaticon.com/icons/svg/21/21104.svg';
   name.textContent = '';
   company.textContent = '';
