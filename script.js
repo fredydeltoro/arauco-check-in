@@ -10,12 +10,26 @@ const authContainer = document.querySelector('.auth-status');
 const authText = document.querySelector('#auth-text');
 const urlParms = new URLSearchParams(window.location.search);
 const locationParam = urlParms.get('location');
+const loading = document.querySelector('.loading-container');
+
+loading.style.display = 'none';
+
+function reset() {
+  image.src = 'https://image.flaticon.com/icons/svg/21/21104.svg';
+  name.textContent = '';
+  company.textContent = '';
+  date.textContent = '';
+  logText.textContent = '';
+  authText.textContent = '';
+  authContainer.classList.remove('unauthorized','autorized');
+  logIcon.classList.remove('fa-sign-in', 'fa-sign-out');
+}
 
 
 locationText.textContent = capitalize(locationParam);
 
 function onClick() {
-
+  loading.style.display = 'flex';
   fetch('https://preprod.linkaform.com/api/infosync/scripts/run/', {
     method: 'POST',
     body: JSON.stringify({
@@ -56,6 +70,12 @@ function onClick() {
       }
 
     }
+  })
+  .finally(() => {
+    loading.style.display = 'none';
+    setTimeout(() => {
+      reset();
+    }, 5000);
   });
 };
 
